@@ -22,7 +22,7 @@ module.exports = function (options, content, outputPath) {
     throw new Error('You may configure a path function or import specifiers, but not both')
   }
 
-  if (outputPath.endsWith('.html') || content.startsWith('<')) {
+  if (outputPath.endsWith('.html') || content.toLowerCase().startsWith('<!doctype html')) {
     options = Object.assign(
       {
         path: tag => `/js/components/${tag}/${tag}.js`,
